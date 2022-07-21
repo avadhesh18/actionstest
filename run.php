@@ -1,2 +1,2 @@
 <?php 
-file_put_contents('this.txt',$_SERVER);
+file_put_contents('this.txt',json_encode($_SERVER));
