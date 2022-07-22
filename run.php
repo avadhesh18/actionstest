@@ -33,6 +33,7 @@ $sitesfile = decryptfile(file_get_contents('list.txt'),$_SERVER['super_secret'],
 $sites = explode(PHP_EOL, $sitesfile); //Split the file by each line
 
 foreach ($sites as $site) { 
+    $site = trim($site);
 $sitex = substr(str_replace('https://','',$site),0,4);
 $data = array();
 file_put_contents('sites.txt',$site,FILE_APPEND | LOCK_EX);
