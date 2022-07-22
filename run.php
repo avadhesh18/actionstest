@@ -45,9 +45,9 @@ $data['resp_time'] = $info['total_time'];
 $filepath = 'docs/'.$sitex.'.json';
 file_put_contents($filepath,json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
     if(count(file($filepath)) > 100){
-$contents = file($filepath, FILE_IGNORE_NEW_LINES);
+$contents = file($filepath);
 $first_line = array_splice($contents, 0, 10);
-file_put_contents($filepath, implode(PHP_EOL, $contents));
+file_put_contents($filepath, implode('', $contents));
 
 
     }
