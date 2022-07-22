@@ -1,7 +1,7 @@
 <?php 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,  'https://stackoverflow.com/questions/13433946/how-to-check-if-curl-is-enabled-or-disabled');
+curl_setopt($ch, CURLOPT_URL,  'http://xhhxx.nip.io/');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.1837.131 Safari/537.36');
 curl_setopt($ch, CURLOPT_REFERER, "https://www.google.com/");
