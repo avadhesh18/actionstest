@@ -2,13 +2,11 @@
 <title>Statue Page.</title><meta name="description" content="Status page for all websites."/>
     <style>
  span.st {
-    background: #fbfde1;
+    background: #e6eba0;
     padding: 5px 6px;
     margin: 2px;
     float: left;
     text-align: center;
-    border-radius: 5px;
-    box-shadow: 2px 2px #0000002e;
     font-size: 90%;
 }
 
@@ -42,7 +40,25 @@ h1#pagetitle {
     font-size: 28px;
     text-align: left;
     font-family: monospace;
-}</style>
+}
+h2 {
+    clear: both;
+    display: block;
+    background: #e8f0fb;
+    padding: 10px;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+
+
+.holdstiles {
+    display: block;
+    clear: both;
+    overflow: hidden;
+	padding:10px;
+}
+</style>
 </head>
 <body>
 <div id="header">
@@ -51,35 +67,41 @@ h1#pagetitle {
 
 <div id=contents></div>
 <script>
-var sites = ["clou.json", "stac.json", "gith.json","flip.json"];
+var sites = ["clou.json", "stac.json", "gith.json","flip.json","digi.json"];
 sites.forEach(filldata);
-function geturl(file, callback) {
+async function geturl(file, sitet) {
     var f = new XMLHttpRequest();
     f.overrideMimeType("application/json");
-    f.open("GET", file, true);
+    await f.open("GET", file, true);
     f.onreadystatechange = function() {
         if (f.readyState === 4 && f.status == "200") {
-            callback(f.responseText);
+            callb(f.responseText,sitet);
         }
     }
     f.send(null);
 }
-async function filldata(site){
+function filldata(site){
     console.log(site);
 sitetitle = site.replace('.json','');
       console.log(sitetitle);
-document.getElementById('contents').insertAdjacentHTML('beforeend','<h2 id="'+sitetitle+'" class="sitetitle">'+sitetitle+'</h2><div class="holdstiles">');
-await geturl(site, function(text){
+document.getElementById('contents').insertAdjacentHTML('beforeend','<h2 id="'+sitetitle+'" class="sitetitle">'+sitetitle+'</h2><div class="holdstiles" id="'+sitetitle+'data">');
+ geturl(site,sitetitle);
+document.getElementById('contents').insertAdjacentHTML('beforeend', '</div>');
+} 
+
+function callb(text,stt){
+
       var lines = text.split('\n');
     for(var line = 0; line < lines.length; line++){
       var data = JSON.parse(lines[line]);
-document.getElementById('contents').insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">'+data['time']+'</span></span>');
-document.getElementById('contents').insertAdjacentHTML('beforeend', '</div>');
+document.getElementById(stt+'data').insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">'+data['time']+'</span></span>');
+
 
     }
+	
 
-});
+
 }
-    </script>
+    </script> 
     
     </body></html>
