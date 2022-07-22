@@ -52,7 +52,7 @@ h1#pagetitle {
 <div id=contents></div>
 <script>
 var sites = ["clou.json", "stac.json", "gith.json","flip.json"];
-sites.foreach(filldata);
+sites.forEach(filldata);
 function geturl(file, callback) {
     var f = new XMLHttpRequest();
     f.overrideMimeType("application/json");
