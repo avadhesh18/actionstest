@@ -10,11 +10,10 @@ function decryptfile($encryptedstring, $password, $encoding = null) {
         return openssl_decrypt(substr($encryptedstring, 16 + $ivlength, -16), "aes-256-gcm", $key, OPENSSL_RAW_DATA, $iv, $tag);
     }
 }
-$dec = decryptfile(file_get_contents('list.txt'),$_SERVER['super_secret'],'base64');
-file_put_contents('this.txt',$dec);
-die();
+
+function statuspage($url){
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,  'http://xhhxx.nip.io/');
+curl_setopt($ch, CURLOPT_URL,  $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.1837.131 Safari/537.36');
 curl_setopt($ch, CURLOPT_REFERER, "https://www.google.com/");
@@ -24,14 +23,21 @@ curl_setopt($ch, CURLOPT_COOKIEFILE, 'cookies.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookies.txt');
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_POST, false);
-$shopclues = curl_exec($ch);
-$info = curl_getinfo($ch);
+$exec = curl_exec($ch);
+$ret = curl_getinfo($ch);
 curl_close($ch);
+return $ret;
+}
 
+$sitesfile = decryptfile(file_get_contents('list.txt'),$_SERVER['super_secret'],'base64');
+$sites = explode(PHP_EOL, $sitesfile); //Split the file by each line
+
+foreach ($sites as $site) { 
+$sitex = substr(str_replace('https://','',$site),0,4);
 $data = array();
+$info = statuspage($site);
 $data['time'] = date("F j, Y, g:i a");
 $data['status'] =  $info['http_code'];
 $data['resp_time'] = $info['total_time'];
-$data['ssl'] = $info['ssl_verify_result'];
-
-file_put_contents('docs/results.json',json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
+file_put_contents('docs/'.$sitex.'.json',json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
+}
