@@ -43,4 +43,9 @@ $data['ts'] = time();
 $data['status'] =  $info['http_code'];
 $data['resp_time'] = $info['total_time'];
 file_put_contents('docs/'.$sitex.'.json',json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
+    if($sitex == 'clou'){
+    list($first_line, $contents) = explode(PHP_EOL, file_get_contents('docs/'.$sitex.'.json'), 2);
+file_put_contents('docs/'.$sitex.'.json', implode(PHP_EOL, $contents));
+
+    }
 }
