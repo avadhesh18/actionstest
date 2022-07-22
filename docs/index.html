@@ -1,1 +1,30 @@
-helllllo
+<div id=this></div>
+<script>
+function geturl(file, callback) {
+    var f = new XMLHttpRequest();
+    f.overrideMimeType("application/json");
+    f.open("GET", file, true);
+    f.onreadystatechange = function() {
+        if (f.readyState === 4 && f.status == "200") {
+            callback(f.responseText);
+        }
+    }
+    f.send(null);
+}
+
+//usage:
+geturl("clou.json", function(text){
+      var lines = text.split('\n');
+    for(var line = 0; line < lines.length; line++){
+      var data = JSON.parse(lines[line]);
+var d1 = document.getElementById('this');
+d1.insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">data['time']</span></span>');
+
+
+      console.log(lines[line]);
+    }
+
+    console.log(text);
+});
+
+</script>
