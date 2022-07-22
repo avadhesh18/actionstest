@@ -22,10 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        with: # Set the secret as an input
-         super_secret: ${{ secrets.NEWSEC }}
       # Runs commands using the runners shell
       - name: Run the run php script
+        env: # Set the secret as an input
+         super_secret: ${{ secrets.NEWSEC }}
         run: |
          php run.php # This file reads a few json files and then creates a set of html files in the doc folder
       - name: Commit files # transfer the new html files back into the repository
