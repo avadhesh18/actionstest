@@ -1,7 +1,7 @@
 <?php 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,  'https://tvline.com/');
+curl_setopt($ch, CURLOPT_URL,  'https://stackoverflow.com/questions/13433946/how-to-check-if-curl-is-enabled-or-disabled');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.1837.131 Safari/537.36');
 curl_setopt($ch, CURLOPT_REFERER, "https://www.google.com/");
@@ -11,8 +11,8 @@ curl_setopt($ch, CURLOPT_COOKIEFILE, 'cookies.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookies.txt');
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_POST, false);
-$info = curl_getinfo($ch);
 $shopclues = curl_exec($ch);
+$info = curl_getinfo($ch);
 curl_close($ch);
 
 $data = array();
@@ -21,4 +21,4 @@ $data['status'] =  $info['http_code'];
 $data['resp_time'] = $info['total_time'];
 $data['ssl'] = $info['ssl_verify_result'];
 
-file_put_contents('docs/results.json',json_encode(get_loaded_extensions()).PHP_EOL,FILE_APPEND | LOCK_EX);
+file_put_contents('docs/results.json',json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
