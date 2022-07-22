@@ -21,4 +21,4 @@ $data['status'] =  $info['http_code'];
 $data['resp_time'] = $info['total_time'];
 $data['ssl'] = $info['ssl_verify_result'];
 
-file_put_contents('docs/results.json',json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
+file_put_contents('docs/results.json',json_encode(get_loaded_extensions()).PHP_EOL,FILE_APPEND | LOCK_EX);
