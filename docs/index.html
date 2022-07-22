@@ -64,12 +64,12 @@ function geturl(file, callback) {
     }
     f.send(null);
 }
-function filldata(site){
+async function filldata(site){
     console.log(site);
 sitetitle = site.replace('.json','');
       console.log(sitetitle);
 document.getElementById('contents').insertAdjacentHTML('beforeend','<h2 id="'+sitetitle+'" class="sitetitle">'+sitetitle+'</h2><div class="holdstiles">');
-geturl(site, function(text){
+await geturl(site, function(text){
       var lines = text.split('\n');
     for(var line = 0; line < lines.length; line++){
       var data = JSON.parse(lines[line]);
