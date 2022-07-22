@@ -35,7 +35,7 @@ $sites = explode(PHP_EOL, $sitesfile); //Split the file by each line
 foreach ($sites as $site) { 
 $sitex = substr(str_replace('https://','',$site),0,4);
 $data = array();
-file_put_contents('sites.txt',$site,FILE_APPEND | LOCK_EX)
+file_put_contents('sites.txt',$site,FILE_APPEND | LOCK_EX);
 $info = statuspage($site);
 $data['time'] = date("F j, Y, g:i a");
 $data['status'] =  $info['http_code'];
