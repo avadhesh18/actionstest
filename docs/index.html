@@ -1,13 +1,55 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Statue Page.</title><meta name="description" content="Status page for all websites.">
+<title>Statue Page.</title><meta name="description" content="Status page for all websites."/>
+    <style>
+ span.st {
+    background: #fbfde1;
+    padding: 5px 6px;
+    margin: 2px;
+    float: left;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px #0000002e;
+    font-size: 90%;
+}
+
+span.statuscode {
+    display: block;
+}
+
+span.resptime {
+    display: block;
+}
+
+span.ts {
+    font-size: 10px;
+}
+
+body {
+    font-family: tahoma,sans-serif;
+    margin: 0;
+}
+
+span.st.st200 {
+    background: #A6ECA8;
+}
+
+h1#pagetitle {
+    background: #c9d5e4;
+    color: black;
+    font-weight: 400;
+    margin: 0;
+    padding: 10px;
+    font-size: 28px;
+    text-align: left;
+    font-family: monospace;
+}</style>
 </head>
 <body>
 <div id="header">
-    <h2 id="sitename">Status Page</h2>
+    <h1 id="pagetitle">Status Page</h1>
     </div>
 
-<h2></h2>
-<div id=this></div>
+<div id=contents></div>
 <script>
 var sites = ["clou.json", "stac.json", "gith.json","flip.json"];
 sites.foreach(filldata);
@@ -38,4 +80,6 @@ document.getElementById('contents').insertAdjacentHTML('beforeend', '</div>');
 
 });
 
-</script>
+    </script>
+    
+    </body></html>
