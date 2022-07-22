@@ -47,7 +47,7 @@ file_put_contents($filepath,json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
     if($sitex == 'clou'){
 $contents = file($filepath, FILE_IGNORE_NEW_LINES);
 $first_line = array_shift($contents);
-file_put_contents($file, implode(PHP_EOL, $contents));
+file_put_contents($filepath, implode(PHP_EOL, $contents));
 
 
     }
