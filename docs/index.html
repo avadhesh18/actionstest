@@ -58,6 +58,22 @@ h2 {
     overflow: hidden;
 	padding:10px;
 }
+	    span.nxspan {
+    display: none;
+}
+
+span.nxspan {}
+
+span.nxspan.show {
+    left: 32px;
+    display: block;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #e4e4e4;
+    border-radius: 5px;
+}
 </style>
 </head>
 <body>
@@ -94,7 +110,7 @@ function callb(text,stt){
       var lines = text.split('\n');
     for(var line = 0; line < lines.length; line++){
       var data = JSON.parse(lines[line]);
-document.getElementById(stt+'data').insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'" onclick="opendet();">&nbsp;</span><span class="nxspan"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">'+data['time']+'</span></span>');
+document.getElementById(stt+'data').insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'">&nbsp;</span><span class="nxspan"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">'+data['time']+'</span></span>');
 
 
     }
