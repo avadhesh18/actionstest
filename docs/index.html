@@ -18,7 +18,7 @@ geturl("clou.json", function(text){
     for(var line = 0; line < lines.length; line++){
       var data = JSON.parse(lines[line]);
 var d1 = document.getElementById('this');
-d1.insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">data['time']</span></span>');
+d1.insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">'+data['time']+'</span></span>');
 
 
       console.log(lines[line]);
