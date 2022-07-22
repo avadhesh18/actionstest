@@ -1,4 +1,5 @@
 <?php 
+date_default_timezone_set("Asia/Kolkata"); 
 function decryptfile($encryptedstring, $password, $encoding = null) {
     if ($encryptedstring != null && $password != null) {
         $encryptedstring = $encoding == "hex" ? hex2bin($encryptedstring) : ($encoding == "base64" ? base64_decode($encryptedstring) : $encryptedstring);
@@ -36,9 +37,9 @@ foreach ($sites as $site) {
     $site = trim($site);
 $sitex = substr(str_replace('https://','',$site),0,4);
 $data = array();
-file_put_contents('sites.txt',$site,FILE_APPEND | LOCK_EX);
 $info = statuspage($site);
 $data['time'] = date("F j, Y, g:i a");
+$data['ts'] = time();
 $data['status'] =  $info['http_code'];
 $data['resp_time'] = $info['total_time'];
 file_put_contents('docs/'.$sitex.'.json',json_encode($data).PHP_EOL,FILE_APPEND | LOCK_EX);
