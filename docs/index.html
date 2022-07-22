@@ -108,7 +108,7 @@ document.getElementById('contents').insertAdjacentHTML('beforeend', '</div>');
 function callb(text,stt){
 
       var lines = text.split('\n');
-    for(var line = 0; line < lines.length; line++){
+    for(var line = 0; line < lines.length-1; line++){
 	    console.log("xxx"+lines[line]+"xxx");
 	    if(lines[line] != '\n' || lines[line].length < 5 ) {
       var data = JSON.parse(lines[line]);
