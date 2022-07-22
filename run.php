@@ -29,7 +29,7 @@ $ret = curl_getinfo($ch);
 curl_close($ch);
 return $ret;
 }
-
+ 
 $sitesfile = decryptfile(file_get_contents('list.txt'),$_SERVER['super_secret'],'base64');
 $sites = explode(PHP_EOL, $sitesfile); //Split the file by each line
 
