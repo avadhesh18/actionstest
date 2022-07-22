@@ -109,7 +109,7 @@ function callb(text,stt){
 
       var lines = text.split('\n');
     for(var line = 0; line < lines.length; line++){
-	    if(lines[;ine] != '\n' OR lines[;ine] != '\r\n') {
+	    if(lines[line] != '\n' OR lines[line] != '\r\n') {
       var data = JSON.parse(lines[line]);
 document.getElementById(stt+'data').insertAdjacentHTML('beforeend', '<span class="st st'+data['status']+'">&nbsp;</span><span class="nxspan"><span class="statuscode">'+data['status']+'</span><span class="resptime">'+data['resp_time']+'</span><span class="ts">'+data['time']+'</span></span>');
 	    }
