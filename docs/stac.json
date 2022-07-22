@@ -1,16 +1,7 @@
-{"time":"July 22, 2022, 7:46 am","status":0,"resp_time":0}
-{"time":"July 22, 2022, 7:50 am","status":0,"resp_time":0}
-{"time":"July 22, 2022, 7:53 am","status":200,"resp_time":0.088096}
-{"time":"July 22, 2022, 1:28 pm","ts":1658476713,"status":200,"resp_time":0.288343}
-{"time":"July 22, 2022, 2:42 pm","ts":1658481141,"status":200,"resp_time":0.110169}
-{"time":"July 22, 2022, 4:11 pm","ts":1658486492,"status":200,"resp_time":0.234359}
-{"time":"July 22, 2022, 4:22 pm","ts":1658487143,"status":200,"resp_time":0.866533}
-{"time":"July 22, 2022, 4:45 pm","ts":1658488503,"status":200,"resp_time":0.095941}
-{"time":"July 22, 2022, 5:01 pm","ts":1658489463,"status":200,"resp_time":0.128285}
-{"time":"July 22, 2022, 5:15 pm","ts":1658490332,"status":200,"resp_time":0.084854}
 {"time":"July 22, 2022, 5:25 pm","ts":1658490959,"status":200,"resp_time":0.090803}
 {"time":"July 22, 2022, 5:48 pm","ts":1658492333,"status":200,"resp_time":0.289047}
 {"time":"July 22, 2022, 6:00 pm","ts":1658493003,"status":200,"resp_time":0.088132}
 {"time":"July 22, 6:00 pm","ts":1658493032,"status":200,"resp_time":0.140045}
 {"time":"July 22, 6:08 pm","ts":1658493483,"status":200,"resp_time":0.102224}
 {"time":"July 22, 6:36 pm","ts":1658495178,"status":200,"resp_time":0.454879}
+{"time":"July 22, 6:36 pm","ts":1658495196,"status":200,"resp_time":0.344368}
