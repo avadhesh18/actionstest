@@ -38,7 +38,7 @@ foreach ($sites as $site) {
 $sitex = substr(str_replace('https://','',$site),0,4);
 $data = array();
 $info = statuspage($site);
-$data['time'] = date("F j, Y, g:i a");
+$data['time'] = date("F j, g:i a");
 $data['ts'] = time();
 $data['status'] =  $info['http_code'];
 $data['resp_time'] = $info['total_time'];
