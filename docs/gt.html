@@ -1,3 +1,5 @@
+<div id="result"></div>
+
 <script>
   function getcookie(cname) {
   let name = cname + "=";
@@ -34,11 +36,18 @@ fetch('https://api.github.com/repos/avadhesh18/actionstest/contents/docs/', {
 })
 .then((response) => response.json())
 .then((result) => {
-  console.log('Success:', result);
+  showposts(result);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
     
+  }
+  
+  function showposts(x){
+    for(var k in x) {
+   document.getElementById('result').innerHTML += '<div class="postlink"><a href="edit.html?file='+x['name']+'">'+x['name']+'</a></div>';
+}
+
   }
 </script>
