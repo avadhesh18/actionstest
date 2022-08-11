@@ -30,8 +30,7 @@ const myHeaders = new Headers({
   if(getcookie('auth') != '') {
 fetch('https://api.github.com/repos/avadhesh18/actionstest/contents/docs/', {
   method: 'GET',
-   headers: myHeaders,
-  // body: JSON.stringify(data_git)
+   headers: myHeaders
 })
 .then((response) => response.json())
 .then((result) => {
