@@ -46,7 +46,7 @@ fetch('https://api.github.com/repos/avadhesh18/actionstest/contents/docs/', {
   
   function showposts(x){
     for(var k in x) {
-   document.getElementById('result').innerHTML += '<div class="postlink"><a href="edit.html?file='+x['name']+'">'+x['name']+'</a></div>';
+   document.getElementById('result').innerHTML += '<div class="postlink"><a href="edit.html?file='+x[k]['name']+'">'+x[k]['name']+'</a></div>';
 }
 
   }
