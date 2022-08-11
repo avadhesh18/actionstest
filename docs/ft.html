@@ -1,0 +1,46 @@
+
+<script>
+  function getcookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+  
+  
+const data_git = {
+sha: '',message: 'hello', content: 'hello',
+'committer': {name:'Avadhesh',email:'avadhesh18@users.noreply.github.com'}
+};
+console.log(JSON.stringify(data_git));
+
+const myHeaders = new Headers({
+  'Content-Type': 'application/json',
+  'Authorization': 'Token' +getcookie('auth')+''
+});
+
+  if(getcookie('auth') != '') {
+fetch('https://api.github.com/repos/avadhesh18/actionstest/contents/test.test', {
+  method: 'PUT',
+   headers: myHeaders,
+  body: JSON.stringify(data_git)
+})
+.then((response) => response.json())
+.then((result) => {
+  console.log('Success:', result);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+    
+  }
+</script>
