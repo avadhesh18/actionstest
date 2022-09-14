@@ -94,3 +94,4 @@
 {"time":"September 14, 4:52 pm","ts":1663154533,"status":200,"resp_time":0.187139}
 {"time":"September 14, 5:10 pm","ts":1663155628,"status":200,"resp_time":0.028626}
 {"time":"September 14, 5:25 pm","ts":1663156540,"status":200,"resp_time":0.055916}
+{"time":"September 14, 6:11 pm","ts":1663159292,"status":500,"resp_time":0.251111}
